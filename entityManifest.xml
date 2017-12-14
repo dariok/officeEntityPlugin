@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:type="TaskPaneApp">
+	<Id>80a51f78-d7b0-468d-97b5-bb6e2a8b36de</Id>
+	<Version>0.1</Version>
+	<ProviderName>ACDH</ProviderName>
+	<DefaultLocale>de-AT</DefaultLocale>
+	<DisplayName DefaultValue="Entity" />
+	<Description DefaultValue="Insert identification into a Word document." />
+	<Hosts>
+		<Host Name="Document"/>
+	</Hosts>
+	<DefaultSettings>
+		<SourceLocation DefaultValue="home.html" />
+	</DefaultSettings>
+	<Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>
