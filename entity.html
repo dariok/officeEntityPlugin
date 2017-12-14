@@ -22,28 +22,28 @@
 		<div id="form_people"></div>
 		<script type="text/javascript">
     $('#form_people').select2({
-    minimumInputLength: 2,
-    escapeMarkup: function(markup) {
-    return markup;
-  },
-  templateResult: function(data) {
-    return data.text;
-  },
-  templateSelection: function(data) {
-    return data.text;
-  },
-          ajax: {
-            url: 'https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/person/',
-            dataType: 'json',
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-          }
-        });
-     $('body').on('submit', 'form#person-form', function(event) {
-     event.stopPropagation();
-     event.preventDefault();
-     var link = $('select#form_people').val()
-     google.script.run.getselectedtext(link);
-     })
+    	minimumInputLength: 2,
+    	escapeMarkup: function(markup) {
+    		return markup;
+  		},
+  		templateResult: function(data) {
+    		return data.text;
+  		},
+  		templateSelection: function(data) {
+    		return data.text;
+  		},
+      ajax: {
+        url: 'https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/person/',
+        dataType: 'json',
+      }
+    });
+    
+    $('body').on('submit', 'form#person-form', function(event) {
+    	event.stopPropagation();
+    	event.preventDefault();
+    	var link = $('select#form_people').val()
+    	insertLink ( link );
+    })
     </script>
 	</body>
 </html>
