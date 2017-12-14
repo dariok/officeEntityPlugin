@@ -24,24 +24,8 @@ function insertLink ( link ) {
 			if (result.status == "succeeded") {
 				// Get the OOXML returned from the getSelectedDataAsync call.
 				var selectedText = result.value;
-				var comment = getLink(selectedText, link);
-				Office.context.document.setSelectedDataAsync(
-					comment,
-					{ coercionType: Office.CoercionType.Ooxml },
-					function (asyncResult) {
-						if (asyncResult.status == "failed") {
-							console.debug("Action failed with error: " + asyncResult.error.message);
-						}
-					}
-				);
-			}
-		}
-	);
-}
-
-function getLink ( text, link ) {
-	return `
-	<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+				
+				var comment = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?mso-application progid="Word.Document"?>
 <pkg:package 
     xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage">
@@ -68,12 +52,12 @@ function getLink ( text, link ) {
                 xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
                 <w:body>
                     <w:p>
-                        <w:hyperlink r:id="rId5" w:history="1">
+                        <w:hyperlink r:id="rId1" w:history="1">
                             <w:r w:rsidRPr="00E31D0E">
 															<w:rPr>
 																<w:rStyle w:val="Hyperlink"/>
 															</w:rPr>
-															<w:t>Person</w:t>
+															<w:t>${selectedText}</w:t>
 														</w:r>
 													</w:hyperlink>
                     </w:p>
@@ -83,4 +67,17 @@ function getLink ( text, link ) {
     </pkg:part>
 </pkg:package>
 	`;
+				
+				Office.context.document.setSelectedDataAsync(
+					comment,
+					{ coercionType: Office.CoercionType.Ooxml },
+					function (asyncResult) {
+						if (asyncResult.status == "failed") {
+							console.debug("Action failed with error: " + asyncResult.error.message);
+						}
+					}
+				);
+			}
+		}
+	);
 }
