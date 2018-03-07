@@ -4,6 +4,10 @@ A MS Office plug-in to access and link a controlled vocab loaded from a remote s
 Usage:
 
 1. (Deploy .html and .js to a web server and update the link in the manifest)
-1. Store the manifest in a place that is recognised as a safe repo by word
+2. Store the manifest in a place that is recognised as a safe repo by word
     * (Word Options, Trust Center, Settings, App Catalogs, enter URL, add)
-1. Insert, My Apps, Shared Folder, select and OK
+3. Insert, My Apps, Shared Folder, select and OK
+4. In App Catalogs above, check the "Show in Menu" checkbox)
+5. (Word2016) In the Ribbon menu, open the plugin by "Einfügen > Addins > My Addins > Shared Folders > Entity" -- in subsequent calls it is possible to open the plugin via "Einfügen > Addins > recent Addins"
+
+Thanks to skurz for updating the readme!
