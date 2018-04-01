@@ -8,6 +8,9 @@ Office.initialize = function ( reason ) {
 };
 
 function insertLink ( link ) {
+	/*+Office.context.document.getSelectedDataAsync(
+			Office.CoercionType.Ooxml,
+			function (result) {console.log (result)});*/
 	// get the selected data as HTML
 	Office.context.document.getSelectedDataAsync(
 		Office.CoercionType.Html,
@@ -25,7 +28,7 @@ function insertLink ( link ) {
 				var text = ret.html();
 				
 				//we simply wrap the contents of that p in an html:a and write it back
-				var ref = '<a href="' + link + '">' + text + '</a>';
+				var ref = '<a href="' + link + '" style="text-decoration:none">' + text + '</a>';
 				
 				Office.context.document.setSelectedDataAsync(
 					ref,
