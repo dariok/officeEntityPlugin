@@ -46,7 +46,7 @@ function process ( data ) {
     console.log(data);
 	var result = { results: [] };
 	data.results.forEach(function(element){
-		var res = element.text.substring(0, element.text.indexOf('/b>')) + '/b> ' + element.id + "</span>";
+		var res = element.text.substring(0, element.text.indexOf('/b>')) + '/b> – (' + element.id + ') ' + element.text.substring(element.text.indexOf('/b>') + 3)
 		var erg = {"id": element.id, "text": res };
 		result.results.push(erg);
 	});
