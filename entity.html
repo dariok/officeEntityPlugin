@@ -39,7 +39,9 @@
 				ajax: {
 					url: function() { return 'https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/' + $('#type').val() + '/' },
 					dataType: 'json',
-					success: console.log($('#type').val())
+					processResults: function (data) {
+						return { results: process(data) };
+					}
 				}
 			});
 			

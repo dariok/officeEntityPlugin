@@ -41,3 +41,14 @@ function insertLink ( link ) {
 		}
 	);
 }
+
+function process ( data ) {
+    console.log(data);
+	var result = { results: [] };
+	data.results.forEach(function(element){
+		var res = element.text.substring(0, element.text.indexOf('/b>')) + '/b> ' + element.id + "</span>";
+		var erg = {"id": element.id, "text": res };
+		result.results.push(erg);
+	});
+	return result.results;
+}
