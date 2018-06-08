@@ -12,3 +12,4 @@ Usage:
 
 Note for Windows 10: If the plugin does not seem to accept any keyboard input in a setting with the plugin code stored on local/intranet location, open Internet Explorer 11 (which is what is used internally by Word on Windows to display the plugin html code), navigate to "compatibility preferences" (not in general internet prefs!) and uncheck the "run intranet pages in compatibility mode" checkbox. 
 
+Note for Word 2016 on Windows: If the plugin is active while saving a .dotx Word Template file (and entity.html and .js are in a readable place), it will be added for new users automatically as soon as they start with a new .docx based on the .dotx. (If this instance is the first time the plugin is used, Word asks for trust, and the Windows 10 note above applies as well.)
