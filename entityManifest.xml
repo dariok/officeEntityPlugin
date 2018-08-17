@@ -14,7 +14,7 @@
 		<Host Name="Document"/>
 	</Hosts>
 	<DefaultSettings>
-		<SourceLocation DefaultValue="\\w07ds2\INZ_Share\entity.html" />
+		<SourceLocation DefaultValue="\\w07ds2\INZ_Share$\entity.html" />
 	</DefaultSettings>
 	<Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>

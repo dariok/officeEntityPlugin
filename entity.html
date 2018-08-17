@@ -39,7 +39,7 @@
 					return data.text;
 				},
 				ajax: {
-					url: function() { return 'https://mprdev.eos.arz.oeaw.ac.at/entities/autocomplete/' + $('#type').val() + '/' },
+					url: function() { return 'https://mpr.acdh-dev.oeaw.ac.at/entities/autocomplete/' + $('#type').val() + '/' },
 					dataType: 'json',
 					processResults: function (data) {
 						return { results: process(data) };
