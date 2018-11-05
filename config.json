@@ -1,0 +1,11 @@
+{
+  "server":"https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/",
+  "types":{
+      "person":"Person",
+      "place":"Ort"
+  },
+  "strings":[
+    "Vom Editor verbessert für",
+    "Ergänzt und dann gestrichen"
+  ]
+}
