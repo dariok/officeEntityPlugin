@@ -1,3 +1,8 @@
+var conf = [];
+$.getJSON('config.json', function(data) {
+    conf.push(data);
+});
+
 $('#form_people').select2({
 	minimumInputLength: 2,
 	escapeMarkup: function(markup) {
@@ -10,7 +15,7 @@ $('#form_people').select2({
 		return data.text;
 	},
 	ajax: {
-		url: function() { return 'https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/' + $('#type').val() + '/' },
+		url: function() { return conf.server + $('#type').val() + '/' },
 		dataType: 'json',
 		processResults: function (data) {
 			return { results: process(data) };
