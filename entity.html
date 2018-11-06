@@ -3,28 +3,47 @@
 	<head>
 		<meta charset="utf-8" /> 
 		<base target="_top"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" integrity="sha256-xJOZHfpxLR/uhh1BwYFS5fhmOAdIRQaiOul5F/b7v3s=" crossorigin="anonymous" />
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js" integrity="sha256-FA14tBI8v+/1BtcH9XtJpcNbComBEpdawUZA6BPXRVw=" crossorigin="anonymous"></script>
 		<script src="https://appsforoffice.microsoft.com/lib/1.0/hosted/office.js" type="text/javascript"></script>
 		<script src="entity.js" type="text/javascript"></script>
+		<script src="form.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<form action="#" method="post" id="person-form">
-			<div class="form-group">
-				<select id="type">
-					<option value="person">Personen</option>
-					<option value="place">Orte</option>
-				</select>
-				<label for="form_people">Suchbegriff:</label>
-				<select id="form_people" style="width: 100%"></select>
-			</div>
+		<form action="#" method="post" id="entity-form">
+			<select id="type">
+				<option value="person">Personen</option>
+				<option value="place">Orte</option>
+			</select>
+			<label for="search-entity">Suchbegriff:</label>
+			<select id="search-entity" style="width: 100%"></select>
 			<input name="submit" value="Create" class="btn btn-primary" id="submit-id-submit" type="submit"/>
 		</form>
-		<div id="form_people"></div>
-		<script type="text/javascript" src="form.js" />
+		<!--<div id="form_people"></div>-->
+		<script type="text/javascript">
+			$('#search-entity').select2({
+				minimumInputLength: 2,
+				escapeMarkup: function (markup) {
+					return markup;
+				},
+				templateResult: function (data) {
+					return data.text;
+				},
+				templateSelection: function (data) {
+					return data.text;
+				},
+				ajax: {
+					url: function () { return conf.server + $('#type').val() + '/' },
+					dataType: 'json',
+					processResults: function (data) {
+						return {
+							results: process(data)
+						};
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
