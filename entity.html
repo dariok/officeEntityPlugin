@@ -13,7 +13,7 @@
 		<script src="form.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<form action="#" method="post" id="entity-form">
+		<form action="entity.html" method="post" id="entity-form" onsubmit="return insertLink();">
 			<select id="type">
 			</select>
 			<label for="search-entity">Suchbegriff:</label>
@@ -22,7 +22,13 @@
 		</form>
 		<!--<div id="form_people"></div>-->
 		<script type="text/javascript">
-			
+			$('#entity-form').on('submit', function (event) {
+				event.stopPropagation();
+				event.preventDefault();
+				var link = $('select#search-entity').val();
+				console.log(link);
+				insertLink (link);
+			});
 		</script>
 	</body>
 </html>
