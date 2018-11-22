@@ -38,6 +38,9 @@ $.ajax({
 					return {
 						results: process(data)
 					};
+				},
+				error: function ( jqXHR, textStatus, errorThrown ) {
+					handleError ( jqXHR, textStatus, errorThrown );
 				}
 			}
 		});

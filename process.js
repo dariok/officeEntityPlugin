@@ -17,3 +17,7 @@ function queryString (conf, params) {
 	}
 	return query
 }
+
+function handleError (jqXHR, textStatus, errorThrown) {
+	console.log(jqXHR + " – " + textStatus + " – " +  errorThrown);
+}
