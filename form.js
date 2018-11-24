@@ -9,11 +9,22 @@ $.ajax({
 			$('#type').append($('<option>', { text:conf.types[key], value: key }));
 		});
 		
+		setConf();
+	}
+});
+
+function setConf() {
 		var ajaxConf;
-		if (conf.token !== '' && conf.token !== 'undefined') {
+		if (conf.authMode == "static token" && conf.token !== '' && conf.token !== 'undefined') {
 			ajaxConf = {
 					"x-access-token": conf.token
 				}
+		} else if (conf.authMode == "dynamic token") {
+			var local = localStorage.getItem("oepDynamicToken");
+			console.log(local);
+			ajaxConf = {
+				"x-access-token": local
+			}
 		} else {
 			ajaxConf = { }
 		}
@@ -44,5 +55,4 @@ $.ajax({
 				}
 			}
 		});
-	}
-});
+}
