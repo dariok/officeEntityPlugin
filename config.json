@@ -1,8 +1,9 @@
 {
-  "server":"https://apisdev.acdh.oeaw.ac.at/entities/autocomplete/",
+  "server":"https://mpr.acdh-dev.oeaw.ac.at/apis/entities/entity/autocomplete/",
   "types":{
       "person":"Person",
-      "place":"Ort"
+      "place":"Ort",
+	  "institution":"Institution"
   },
   "strings":[
     "Vom Editor verbessert für",
