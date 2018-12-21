@@ -1,0 +1,12 @@
+{
+  "server":"https://mpr.acdh-dev.oeaw.ac.at/apis/entities/entity/autocomplete/",
+  "types":{
+      "person":"Person",
+      "place":"Ort",
+	  "institution":"Institution"
+  },
+  "strings":[
+    "Vom Editor verbessert für",
+    "Ergänzt und dann gestrichen"
+  ]
+}
