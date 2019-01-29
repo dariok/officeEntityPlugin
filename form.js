@@ -47,7 +47,7 @@ function setConf() {
 				dataType: 'json',
 				processResults: function (data) {
 					return {
-						results: process(data)
+						results: process(data, $('#type').val())
 					};
 				},
 				error: function ( jqXHR, textStatus, errorThrown ) {

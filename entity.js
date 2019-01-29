@@ -42,9 +42,9 @@ function insertLink ( link ) {
 	);
 }
 
-function process ( data ) {
+function process ( data, type ) {
 	console.log(data);
 	var result = { results: [] };
-	evalResult(result, data);
+	evalResult(result, data, type);
 	return result.results;
 }
