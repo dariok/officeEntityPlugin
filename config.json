@@ -4,8 +4,12 @@
       "person":"Person",
       "place":"Ort"
   },
-  "strings":[
-    "Vom Editor verbessert für",
-    "Ergänzt und dann gestrichen"
-  ]
+  "strings":{
+    "posPrefix": ["über der Zeile", "unter der Zeile", "vor der Zeile", "hinter der Zeile", "in der Zeile",
+        "am Rand", "am Seitenanfang", "am Seitenende"],
+    "posAction": ["ergänzt", "von anderer Hand ergänzt", "von ... ergänzt",
+        "korr. aus:", "korr. von anderer Hand aus:", "korr. von ... aus:"],
+    "action2": ["konj. für:", "konj. in ... aus:", "gestr.", "gestr. von anderer Hand", "gestr. von ...",
+        "von anderer Hand", "von ... Hand"]
+  }
 }
