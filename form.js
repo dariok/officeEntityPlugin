@@ -13,8 +13,7 @@ $.ajax({
 				event.stopPropagation();
 				event.preventDefault();
 				var link = $('select#search-entity').val();
-				console.log(link);
-				insertWordLink (link);
+				insertLink (link);
 			});
 			
 		// insert text for the critical apparatus

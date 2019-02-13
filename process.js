@@ -25,3 +25,7 @@ function handleError (jqXHR, textStatus, errorThrown) {
 function insertText (elements) {
 	console.log(elements);
 }
+
+function insertLink (link) {
+	console.log(link);
+}
