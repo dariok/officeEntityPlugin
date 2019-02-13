@@ -21,3 +21,7 @@ function queryString (conf, params) {
 function handleError (jqXHR, textStatus, errorThrown) {
 	console.log(jqXHR + " – " + textStatus + " – " +  errorThrown);
 }
+
+function insertText (elements) {
+	console.log(elements);
+}
