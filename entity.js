@@ -7,10 +7,7 @@ Office.initialize = function ( reason ) {
 	);
 };
 
-function insertLink ( link ) {
-	/*+Office.context.document.getSelectedDataAsync(
-			Office.CoercionType.Ooxml,
-			function (result) {console.log (result)});*/
+function insertWordLink ( link ) {
 	// get the selected data as HTML
 	Office.context.document.getSelectedDataAsync(
 		Office.CoercionType.Html,
@@ -40,6 +37,24 @@ function insertLink ( link ) {
 			}
 		}
 	);
+}
+
+function insertWordText ( text ) {
+	Office.context.document.getSelectedDataAsync(
+		Office.coercionType.Html,
+		function (result) {
+			if (result.status == "succeeded") {
+				var ins = "<span>" + text + "</span>";
+				
+				Office.context.document.setSelectedDataAsync(
+					ins,
+					{coercionType: Office.CoercionType.Html},
+					function (syncResult) {
+						console.log(asyncResult.status);
+					}
+				);
+			}
+		});
 }
 
 function process ( data, type ) {
