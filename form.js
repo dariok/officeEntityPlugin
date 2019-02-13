@@ -5,8 +5,41 @@ $.ajax({
 	success: function (data) {
 		conf = data.data;
 		
+		// entity autocomplete/insert
 		Object.keys(conf.types).forEach(function(key) {
 			$('#type').append($('<option>', { text:conf.types[key], value: key }));
+		});
+		$('#entity-form').on('submit', function (event) {
+				event.stopPropagation();
+				event.preventDefault();
+				var link = $('select#search-entity').val();
+				console.log(link);
+				insertWordLink (link);
+			});
+			
+		// insert text for the critical apparatus
+		i = 0;
+		conf.strings.forEach(function(fset) {
+			var fieldset = $("<fieldset></fieldset>");
+			$("#app-form").append(fieldset);
+			fieldset.attr("id", "f" + i);
+			
+			Object.keys(fset).forEach(function(key) {
+				var e = $("<select></select>");
+				fieldset.append(e);
+				e.attr('id', key);
+				fset[key].forEach(function(entry) {
+					$('#' + key).append($("<option>" + entry + "</option>"));
+				});
+			});
+			
+			fieldset.append($('<input type="submit">'));
+			i++;
+		});
+		$("#app-form input").on('click', function (event) {
+			event.stopPropagation();
+			event.preventDefault();
+			insertText ($(this).siblings());
 		});
 		
 		setConf();
