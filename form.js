@@ -76,7 +76,6 @@ function setConf() {
 				url: function () { return conf.server + $('#type').val() + conf.suffix },
 				data: function (params) { return queryString (conf, params) },
 				headers: ajaxConf,
-				dataType: 'json',
 				processResults: function (data) {
 					return {
 						results: process(data, $('#type').val())
