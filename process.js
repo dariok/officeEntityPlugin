@@ -26,6 +26,7 @@ function insertText (elements) {
 	console.log(elements);
 }
 
-function insertLink (link) {
+function insertLink (link, text) {
 	console.log(link);
+  $('#textOutput').text(text);
 }

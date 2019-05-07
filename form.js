@@ -12,8 +12,8 @@ $.ajax({
 		$('#entity-form').on('submit', function (event) {
 				event.stopPropagation();
 				event.preventDefault();
-				var link = $('select#search-entity').val();
-				insertLink (link);
+				let sel = $('select#search-entity');
+				insertLink (sel.val(), sel.text());
 			});
 			
 		// insert text for the critical apparatus
