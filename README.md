@@ -15,12 +15,13 @@ It provides a configurable auto complete that writes some form of ID to a Link i
 3. restart Word.
 3. *Insert*, (*Add Ins*), *My Add Ins*, *Shared Folder*, select and OK.
 
-## Note
+### Notes on trusted repositories in Word
 
-1. The manifest needs to be stored either on an Exchange server or on a web server with HTTPS enabled and with a valid certificate that is trusted by Windows.
-1. If Word does not find the plugin on a web server, it may be that Office expects an IIS as web server; try setting up one or using a (localhost) network share.
-1. The path to be entered in step 4 is the __path to the directory containing the manifest file__; it *must not* point to the manifest file directly.
-1. The data endpoint from which the data is fetched needs to be HTTPS if the HTML and/or manifest is stored on an HTTPS web server.
+1. The manifest needs to be stored either on a Sharepoint or on a network share (this may also be a local
+  directory that has been shared to the network)
+1. Using an HTTPS server does not seem to be supported anymore.
+1. The path to be entered in step 4 above is the __path to the directory containing the manifest file__; it *must not* point to the manifest file directly.
+1. The data endpoint from which the data is fetched needs to be HTTPS.
 1. For **Windows 10:** If the plugin does not seem to accept any keyboard input in a setting with the plugin code stored on local/intranet location, open Internet Explorer 11 (which is what is used internally by Word on Windows to display the plugin html code), navigate to "compatibility preferences" (not in general internet prefs!) and uncheck the "run intranet pages in compatibility mode" checkbox.
 1. For **Word 2016 on Windows**: If the plugin is active while saving a .dotx Word Template file (and entity.html and .js are in a readable place), it will be added for new users automatically as soon as they start with a new .docx based on the .dotx. (If this instance is the first time the plugin is used, Word asks for trust, and the Windows 10 note above applies as well.)
 
