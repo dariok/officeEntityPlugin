@@ -45,6 +45,29 @@ $.ajax({
         insertText ($(this).siblings());
       });
     }
+
+    // set paragraph style
+    if ( conf.hasOwnProperty('paragraphs') ) {
+      for ( const style in conf.paragraphs ) {
+        $('#paragraph').append($('<option>', { value: style, text: conf.paragraphs[style] }));
+      }
+      $('#paragraph-styles').on('submit', ( event ) => {
+        event.stopPropagation();
+        event.preventDefault();
+        Word.run(( context ) => {
+          let paragraphs = context.document.getSelection().paragraphs;
+          paragraphs.load();
+          
+          return context.sync().then(function () {
+            console.log(JSON.stringify(paragraphs.items));
+            for ( let i = 0; i < paragraphs.items.length; i++ ) {
+              paragraphs.items[i].style = $('#paragraph').val();
+            }
+            return context.sync();
+          });
+        });
+      });
+    }
     
     setConf(conf);
   }
