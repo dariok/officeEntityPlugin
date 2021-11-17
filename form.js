@@ -46,11 +46,11 @@ $.ajax({
       });
     }
     
-    setConf();
+    setConf(conf);
   }
 });
 
-function setConf() {
+function setConf( conf ) {
   var ajaxConf;
   if ( conf.authMode == "static token" && conf.token !== '' && conf.token !== 'undefined' ) {
     ajaxConf = {
