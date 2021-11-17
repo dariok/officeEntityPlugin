@@ -1,3 +1,4 @@
+/* globals Office, Word */
 /* jshint browser: true */
 
 var conf =[];
@@ -54,6 +55,18 @@ $.ajax({
       $('#paragraph-styles').on('submit', ( event ) => {
         event.stopPropagation();
         event.preventDefault();
+
+        /*Office.context.document.getSelectedDataAsync(
+          Office.CoercionType.Ooxml,
+          ( result ) => {
+            let xml = $.parseXML(result.value);
+            let styles = $(xml).find("w\\:styles");
+            styles.children().each( ( index, style ) => {
+              console.log(style);
+            });
+          }
+        );*/
+
         Word.run(( context ) => {
           let paragraphs = context.document.getSelection().paragraphs;
           paragraphs.load();
